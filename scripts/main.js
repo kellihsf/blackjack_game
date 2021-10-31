@@ -46,8 +46,59 @@ window.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-// deck is array of objects
-// create a function buildDeck that returns a new array with 52 card objects
-function buildDeck () {
-  cardArray = [];
+function buildDeck() {
+  let cards = [];
+
+  // loop through suits
+  const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+
+  for (let i = 0; i < suits.length; i++) {
+
+    // loop through rank 1-13
+    const rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    for (let j = 0; j < rank.length; j++) {
+      cards.push(
+        { rank: rank[j], suit: suits[i] }
+      );
+    }
+  }
+  console.log(cards);
 }
+
+let myDeck = buildDeck();
+
+
+let dealerHand = [];
+let playerHand = [];
+
+function drawCard(nextHand){
+  console.log("you have drawn a card");
+  let drawnCard = myDeck.pop();
+  nextHand.push(drawnCard);
+  console.log(nextHand);
+}
+
+drawCard();
+
+// ****  Deal the hand ****
+  // Push the deal button
+
+  // Card dealt to player
+  // * Draw a card from the deck
+  drawCard(playerHand);
+  // * Deal it to the player -- add to player's hand
+
+  // Card dealt to dealer
+  // * Draw a card from the deck
+  drawCard(dealerHand);
+  // * Deal it to the dealer -- add to dealer's hand
+
+  // Card dealt to player
+  // * Draw a card from the deck
+  drawCard(playerHand);
+  // * Deal it to the player -- add to player's hand
+
+  // Card dealt to dealer
+  // * Draw a card from the deck
+  drawCard(dealerHand);
+  // * Deal it to the dealer -- add to dealer's hand
